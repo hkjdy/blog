@@ -8,7 +8,7 @@ email: hkjdy@163.com
 beian: 京ICP备14054711号
 weibo: hkjdy
 github: hkjdy
-pygments: true
+rouge: true
 safe: true
 paginate: 20
 about: "这里是格修的博客"
