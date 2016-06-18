@@ -31,7 +31,7 @@ It would be better if you know the concept of [string interning](http://www.prog
 
 Yes to version 7. From [JDK 7](http://openjdk.java.net/projects/jdk7/features/), we can use string as switch condition. Before version 6, we can not use string as switch condition.
 
-```
+```java
 // java 7 only!
 switch (str.toLowerCase()) {
       case "a":
@@ -46,7 +46,7 @@ switch (str.toLowerCase()) {
 4.How to convert string to int?
 ------
 
-```
+```java
 int n = Integer.parseInt("10");
 Simple, but so frequently used and sometimes ignored.
 ```
@@ -54,7 +54,7 @@ Simple, but so frequently used and sometimes ignored.
 5.How to split a string with white space characters?
 ------
 
-```
+```java
 String[] strArray = aString.split("\\s+");
 ```
 
@@ -63,7 +63,7 @@ String[] strArray = aString.split("\\s+");
 
 In JDK 6, the substring() method gives a window to an array of chars which represents the existing String, but do not create a new one. To create a new string represented by a new char array, you can do add an empty string like the following:
 
-```
+```java
 str.substring(m, n) + ""
 ```
 
@@ -82,7 +82,7 @@ StringBuilder vs StringBuffer: StringBuffer is synchronized, which means it is t
 
 In Python, we can just multiply a number to repeat a string. In Java, we can use the repeat() method of StringUtils from Apache Commons Lang package.
 
-```
+```java
 String str = "abcd";
 String repeated = StringUtils.repeat(str,3);
 //abcdabcdabcd
@@ -91,7 +91,7 @@ String repeated = StringUtils.repeat(str,3);
 9.How to convert string to date?
 ------
 
-```
+```java
 String str = "Sep 17, 2013";
 Date date = new SimpleDateFormat("MMMM d, yy", Locale.ENGLISH).parse(str);
 System.out.println(date);
@@ -102,7 +102,7 @@ System.out.println(date);
 ------
 Use StringUtils from apache commons lang.
 
-```
+```java
 int n = StringUtils.countMatches("11112222", "1");
 System.out.println(n);
 ```
