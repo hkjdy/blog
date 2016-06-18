@@ -57,7 +57,7 @@ h2{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-siz
 h3{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1.2em;color:#222;padding-bottom:0.3em;line-height:1.2;border-bottom:0px solid #eee;margin-top: 15px;margin-bottom: 15px;}
 h4{font-family:"Cuprum","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:1em;color:#333;padding-bottom:0.3em;line-height:1.2;border-bottom:0px solid #eee;margin-top: 15px;margin-bottom: 15px;}
 pre,code{font-family:Menlo,"Andale Mono",Consolas,"Courier New",Monaco,monospace;font-size:13px;border:1px solid #D1D1E8;padding:8px;border-radius:8px;}
-code{background-color:#f8f8f8;}
+code{background-color:#f0f0f0;}
 embed,object,iframe{display:block;margin:4px auto;}
 .gist{font-size: 12px;line-height:1.6;}
 
