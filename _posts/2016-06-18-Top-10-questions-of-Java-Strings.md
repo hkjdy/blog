@@ -1,7 +1,7 @@
 ---
 date: 2016/6/18 星期六  16:23:53+0800
 layout: post
-title: Top 10 questions of Java Strings
+title: Top 10 questions of Java Strings【转】
 thread: 164
 categories: Java
 tags:  string
