@@ -12,10 +12,12 @@ tags:  string
 
 ------
 
-The following are top 10 frequently asked questions about Java Strings.
+The following are top 10 frequently asked questions about Java Strings.  
+接下来是关于Java字符串被问到最频繁的10个问题。
 
 1.How to compare strings? Use "==" or use equals()?
 ------
+如何比较字符串？使用 "==" 还是 equals()方法？
 
 In brief, "==" tests if references are equal and equals() tests if values are equal. Unless you want to check if two strings are the same object, you should always use equals().
 
