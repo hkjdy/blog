@@ -40,7 +40,7 @@ String是通过char数组来实现的。JDK 6中，String类包含3个域：`cha
 
 调用substring()方法会创建一个新的字符串，但是字符串的值在堆中仍然指向相同的数组。两个字符串的区别是它们的`count`值和`value`值。
 
-![](/assets/string-substring-jdk6-650x389.jepg)
+![](/assets/string-substring-jdk6-650x389.jpeg)
 
 为了解释这个问题，下面的代码做过简化，而且只包含关键点。
 
