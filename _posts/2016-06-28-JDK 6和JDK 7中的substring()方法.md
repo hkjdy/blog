@@ -3,11 +3,11 @@ date: 2016/6/28 星期二  20:08:34+0800
 layout: post
 title: JDK 6和JDK 7中的substring()方法
 thread: 164
-categories: java
+categories: Java
 tags:  substring
 ---
 
-`substring(int beginIndex, int endIndex)`方法在`JDK 6`和`JDK7`中是不同的，了解二者之间的区别有助于更好的使用它们。简单起见，下文用`substring()`代替`substring(int beginIndex, int endIndex)`方法。
+`substring(int beginIndex, int endIndex)`方法在`JDK 6`和`JDK7`中是不同的，了解二者的区别有助于更好的使用它们。简单起见，下文用`substring()`代替`substring(int beginIndex, int endIndex)`方法。
 
 1.substring()实现什么功能？
 ------
@@ -29,14 +29,15 @@ bc
 ------
 
 你可能知道，因为x是不可变的，把`x.substring(1,3)`的结果分配给`x`，`x`向下面这样指向一个新的完整字符串：
+
 ![](/assets/string-immutability1-650x303.jpeg)
 
-然而，这张表并不能准确的说明堆(heap)中真实发生的事情。在`JDK 6`和`JDK 7`中`substring()`被调用后它们真实发生的事情是不同的。
+然而，这张图并不能准确的说明堆(heap)中真实发生的事情。在`JDK 6`和`JDK 7`中`substring()`被调用后它们真实发生的事情是不同的。
 
 3.JDK 6中的substring()
 ------
 
-String是通过char数组来实现的。JDK 6中，String类包含3个域：`char value[]`， `int offset`，int count。分别用来存储真实的字符数组，数组的第一个索引位置，String中字符的长度。
+String是通过char数组来实现的。JDK 6中，String类包含3个域：`char value[]`， `int offset`，`int count`。分别用来存储真实的字符数组，数组的第一个索引位置，String中字符的长度。
 
 调用substring()方法会创建一个新的字符串，但是字符串的值在堆中仍然指向相同的数组。两个字符串的区别是它们的`count`值和`value`值。
 
