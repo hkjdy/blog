@@ -25,10 +25,10 @@ System.out.println(x);
 bc
 ```
 
-2.substring()被调用后发生了什么？
+2.调用substring()后发生了什么？
 ------
 
-你可能知道，因为x是不可变的，把`x.substring(1,3)`的结果分配给`x`，`x`向下面这样指向一个新的完整字符串：
+你可能知道，因为`x`是不可变的，把`x.substring(1,3)`的结果分配给`x`，`x`向下面这样指向一个新的完整字符串：
 
 ![](/assets/string-immutability1-650x303.jpeg)
 
