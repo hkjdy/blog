@@ -1,5 +1,5 @@
 ---
-date: 2026/16/18 星期六  16:23:53+0800
+data: 2016/06/18 星期六  16:23:53+0800
 layout: post
 title: Top 10 questions of Java Strings【转】
 thread: 164
