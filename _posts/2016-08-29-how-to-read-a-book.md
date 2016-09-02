@@ -30,7 +30,7 @@ tags:  读书笔记
 通过再次浏览读书笔记，在检索和参考的过程中帮助自己获得智慧、得到提升。  
   
 以上五个阶段可以总结为如下图：  
-![Alt text](http://www.hkjdy.cn/img/howToReadABook/reading_steps.png)  
+![Alt text](http://img.hkjdy.cn/howToReadABook/reading_steps.png)  
 以上五个步骤只有步骤3不需要使用笔记本，在这个阶段只要通过折上书页的一角或用笔做上标记，为最后制作读书笔记做好准备即可。  
   
 下面分别对以上五个步骤做出说明：  
