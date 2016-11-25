@@ -13,13 +13,13 @@ tags:  设计模式 策略模式
 
 ### 老板的需求
 
-SimUDuck游戏中出现各种鸭子，可以游泳，可以呱呱叫。
+SimUDuck游戏中会出现各种鸭子，可以游泳，可以呱呱叫。
 
 ### 实现
 
-我们设计一个鸭子超类，并让各种鸭子继承此超类，如下程序清单所示：
+我们设计一个鸭子超类，并让各种鸭子继承此超类，程序清单如下：
 
-```
+```java
 public abstract class Duck {
 	public void quack() {}
 	public void swim() {}
@@ -28,7 +28,9 @@ public abstract class Duck {
 }
 ```
 
-```
+绿头鸭子类
+
+```java
 public class MallardDuck extends Duck {
 
 	@Override
@@ -38,8 +40,9 @@ public class MallardDuck extends Duck {
 
 }
 ```
+红头鸭子类
 
-```
+```java
 public class RedheadDuck extends Duck {
 
 	@Override
@@ -49,9 +52,9 @@ public class RedheadDuck extends Duck {
 }
 ```
 
-鸭子只会游泳和呱呱叫还不够，我们还要让鸭子能飞，很简单，只需要在鸭子的超类中添加一个会飞的方法就搞定了，这样所有继承自此超类的各种鸭子类就都会飞了。如下程序清单所示：
+鸭子只会游泳和呱呱叫还不够，我们还要让鸭子能飞，很简单，只需要在鸭子的超类中添加一个会飞的方法就搞定了，这样所有继承自此超类的各种鸭子就都会飞了。如下程序清单所示：
 
-```
+```java
 public abstract class Duck {
 	public void quack() {}
 	public void swim() {}
@@ -62,7 +65,7 @@ public abstract class Duck {
 
 接下我们要实现一个橡皮鸭类（RubberDuck）同样继承自鸭子超类（Duck）
 
-```
+```java
 public class RubberDuck extends Duck {
 	@Override
 	public void quack() {
@@ -82,6 +85,8 @@ public class RubberDuck extends Duck {
 
 我们的噩梦开始了，老板要求每周都增加一批新的鸭子子类，至于具体怎么加还没想好。每当有新的鸭子子类出现，我们就得检查并可能需要覆盖fly()和quark()方法。看来继承不适合解决我们的问题，我们需要一个更清晰的方法，不至少陷入无尽的痛苦中。
 
+### 使用接口
+
 接下来我们考虑能否利用接口解决我们的问题，我们可以把fly()取出来，放进一个Flyable接口中。这样一来，只有会飞的鸭子才实现此接口。同样的方法，也可以用来设计一个Quackable接口，因为不是所有的鸭子都会叫。
 
 现在我们知道使用继承有一些缺失，因为改变鸭子的行为会影响所有种类的鸭子，而这并不恰当。Flyable与Quackable接口一开始似乎还挺不错，解决了问题，但是Java的接口不具有实现代码，所以实现接口无法达到代码的复用。这意味着：无论何时你需要修改某个行为，你必须得往下追踪并修改每一个定义此行为的类，一不小心，可能造成新的错误。
@@ -94,14 +99,15 @@ public class RubberDuck extends Duck {
 
 结果如何？代码变化之后，现其不意的部分变得很少，系统变得更有弹性。下面是按照**设计原则**实现的代码清单:
 
-```
+```java
 public interface FlyBehavior {
 	public void fly();
 }
 ```
 
-```
-//这里实现了所有有翅膀的鸭子飞行动作
+这里实现了所有有翅膀的鸭子飞行动作
+
+```java
 public class FlyWithWings implements FlyBehavior {
 
 	@Override
@@ -113,8 +119,9 @@ public class FlyWithWings implements FlyBehavior {
 }
 ```
 
-```
-//这里实现了所有不会飞的鸭子的动作
+这里实现了所有不会飞的鸭子的动作
+
+```java
 public class FlyNoWay implements FlyBehavior {
 
 	@Override
@@ -134,7 +141,7 @@ public class FlyNoWay implements FlyBehavior {
 
 ### 整合鸭子的行为
 
-```
+```java
 public abstract class Duck {
 	private FlyBehavior flyBehavior;	//行为变量被声明为接口类型
 	
@@ -150,7 +157,7 @@ public abstract class Duck {
 }
 ```
 
-```
+```java
 public class MallardDuck extends Duck {
 
 	public MallardDuck() {
@@ -167,7 +174,7 @@ public class MallardDuck extends Duck {
 
 ### 测试Duck类
 
-```
+```java
 public class MiniDuckSimulator {
 
 	public static void main(String[] args) {
@@ -176,13 +183,14 @@ public class MiniDuckSimulator {
 	}
 }
 ```
+
 运行结果：`I'm flying!!`
 
 ### 动态设定行为
 
 我们还可以实现动态设定鸭子的行为，而不是在鸭子的构造器内实例化，只需要在Duck类中加入一个新的方法，程序清单如下：
 
-```
+```java
 public void setFlyBehavior(FlyBehavior fb) {
 		flyBehavior = fb;
 	}
