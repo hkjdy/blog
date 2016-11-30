@@ -33,7 +33,7 @@ tags:  设计模式 观察者模式
 
 ![station](/assets/observer/observer1.png)
 
-[查看大图](http://www.hkjdy.cn/assets/observer/observer1.png)
+<a href="http://www.hkjdy.cn/assets/observer/observer1.png" target="_blank">查看大图</a>
 
 WeatherData对象知道如何跟物理气象站联系，以取得更新的数据。所以我们不需要关心气象站这一部分，我们的工作就是利用WeatherData对象取得数据，并更新布告板(显示装置)。
 
@@ -41,7 +41,7 @@ WeatherData对象知道如何跟物理气象站联系，以取得更新的数据
 
 ![station](/assets/observer/observer2.png)
 
-[查看大图](http://www.hkjdy.cn/assets/observer/observer2.png)
+<a href="http://www.hkjdy.cn/assets/observer/observer2.png" target="_blank">查看大图</a>
 
 ### 实现气象站
 
@@ -223,7 +223,7 @@ public class WeatherStation {
 
 ![station](/assets/observer/observer3.png)
 
-[查看大图](http://www.hkjdy.cn/assets/observer/observer3.png)
+<a href="http://www.hkjdy.cn/assets/observer/observer3.png" target="_blank">查看大图</a>
 
 ### Java内置的观察者模式如何运作
 
