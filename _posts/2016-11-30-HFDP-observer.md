@@ -33,11 +33,15 @@ tags:  设计模式 观察者模式
 
 ![station](/assets/observer/observer1.png)
 
-WeatherData对象知道如何跟物理气象站联系，以取得更新的数据。所以我们不需要关心气象站这一部分，我们的工作就是利用WeatherData对象取得数据，并更新布告板。
+[查看大图](http://www.hkjdy.cn/assets/observer/observer1.png)
+
+WeatherData对象知道如何跟物理气象站联系，以取得更新的数据。所以我们不需要关心气象站这一部分，我们的工作就是利用WeatherData对象取得数据，并更新布告板(显示装置)。
 
 ### 设计气象站
 
 ![station](/assets/observer/observer2.png)
+
+[查看大图](http://www.hkjdy.cn/assets/observer/observer2.png)
 
 ### 实现气象站
 
@@ -65,7 +69,7 @@ public interface Observer {
 
 #### DisplayElement接口
 
-```
+```java
 public interface DisplayElement {
 	//当布告板需要显示时，调用此方法。
 	public void display();
@@ -219,6 +223,8 @@ public class WeatherStation {
 
 ![station](/assets/observer/observer3.png)
 
+[查看大图](http://www.hkjdy.cn/assets/observer/observer3.png)
+
 ### Java内置的观察者模式如何运作
 
 #### 如何把对象变成观察者
@@ -247,7 +253,7 @@ update(Observable o, Object arg)
 
 #### 实现主题:WeatherData
 
-```
+```java
 public class WeatherData extends Observable {
 	private int temperature;
 	private float humidity;
@@ -285,7 +291,7 @@ public class WeatherData extends Observable {
 
 #### 实现CurrentConditionsDisplay布告板
 
-```
+```java
 public class CurrentConditionsDisplay implements DisplayElement, Observer {
 
 	Observable observable;
@@ -320,7 +326,7 @@ public class CurrentConditionsDisplay implements DisplayElement, Observer {
 
 同样原理实现 ForecastDisplay 布告板
 
-```
+```java
 public class ForecastDisplay implements Observer, DisplayElement {
 
 	private float currentPressure = 29.92f;
@@ -353,7 +359,7 @@ public class ForecastDisplay implements Observer, DisplayElement {
 
 #### 启动气象站
 
-````
+````java
 public class WeatherStation {
 
 	public static void main(String[] args) {
