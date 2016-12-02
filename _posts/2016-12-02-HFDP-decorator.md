@@ -142,19 +142,19 @@ public class DarkRoast extends Beverage {
 
 ### 以装饰者构造饮料订单
 
-1. 以DarkRoast对象开始
+1.以DarkRoast对象开始
 
 ![coffee](/assets/coffee/coffee2.png)
 
-2. 顾客想要摩卡(Mocha)，所以建立一个Mocha对象，并用它将DarkRoast对象包(wrap)起来。
+2.顾客想要摩卡(Mocha)，所以建立一个Mocha对象，并用它将DarkRoast对象包(wrap)起来。
 
 ![coffee](/assets/coffee/coffee3.png)
 
-3. 顾客想要奶泡(Whip)，所以需要建立一个Whip装饰者，并用它将Mocha对象包起来。别忘了，DarkRoast继承自Beverage，且有一个cost()方法，用来计算饮料价钱。
+3.顾客还想要奶泡(Whip)，所以需要建立一个Whip装饰者，并用它将Mocha对象包起来。别忘了，DarkRoast继承自Beverage，且有一个cost()方法，用来计算饮料价钱。
 
 ![coffee](/assets/coffee/coffee4.png)
 
-4. 现在，该是为顾客算钱的时候了。通过调用最外圈装饰者(Whip)的cost()就可以办得到。Whip的cost()会先委托它装饰的对象（也就是Mocha）计算出价钱，然后再加上奶泡的价钱。
+4.现在，该是为顾客算钱的时候了。通过调用最外圈装饰者(Whip)的cost()就可以办得到。Whip的cost()会先委托它装饰的对象（也就是Mocha）计算出价钱，然后再加上奶泡的价钱。
 
 ![coffee](/assets/coffee/coffee5.png)
 
@@ -293,8 +293,8 @@ public class StarbuzzCoffee {
 
 ```
 espresso: $1.99		//不加任何调料		$1.99
-espresso: $2.19		//一份摩卡			$1.99+0.20
-espresso: $2.39		//两份摩卡			$1.99+0.20+0.20
+espresso: $2.19		//一份摩卡		$1.99+0.20
+espresso: $2.39		//两份摩卡		$1.99+0.20+0.20
 espresso: $2.79		//两份摩卡+一份奶泡	$1.99+0.20+0.20+0.40
 ```
 
@@ -310,4 +310,4 @@ espresso: $2.79		//两份摩卡+一份奶泡	$1.99+0.20+0.20+0.40
 
 5. 对象可以在任何时候被装饰，所以可以在运行时动态地、不限量地用你喜欢的装饰者来装饰对象。
 
-装饰者模式杰设计注入弹性，但是，装饰者模式会在设计中加入大量的小类，这偶尔会导致别人不容易理解这种设计方式。所以在使用装饰者时，必须要小心谨慎。后面介绍的工厂模式和生成器模式对解决这个问题会有所帮助。
+装饰者模式为设计注入弹性，但是，装饰者模式会在设计中加入大量的小类，这偶尔会导致别人不容易理解这种设计方式。所以在使用装饰者时，必须要小心谨慎。后面介绍的工厂模式和生成器模式对解决这个问题会有所帮助。
