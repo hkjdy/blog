@@ -291,19 +291,19 @@ public class Client {
 }
 ```
 
-1. 首先需要一个纽约披萨店：
+1.首先需要一个纽约披萨店：
 
 ```java
 PizzaStore nyStylePizzaStore = new NYStylePizzaStore();
 ```
 
-2. 现在有了一个披萨店，可以下订单了：
+2.现在有了一个披萨店，可以下订单了：
 
 ```java
 nyStylePizzaStore.orderPizza("cheese");
 ```
 
-3. orderPizza()方法于是调用createPizza()方法:
+3.orderPizza()方法于是调用createPizza()方法:
 
 ```java
 Pizza pizza = createPizza("cheese");
@@ -311,7 +311,7 @@ Pizza pizza = createPizza("cheese");
 
 工厂方法createPizza()是在子类中实现的。在这个例子中，它会返回纽约芝士披萨。
 
-4. 最后，披萨必须经过下列的处理才算完成orderPizza():
+4.最后，披萨必须经过下列的处理才算完成orderPizza():
 
 ```java
 pizza.prepare();
@@ -636,31 +636,31 @@ Place pizza in official PizzaStore box
 
 运行结果分析
 
-1. 首先我们需要一个纽约披萨店：
+1.首先我们需要一个纽约披萨店：
 
 ```java
 PizzaStore nyStore = new NYStylePizzaStore();
 ```
 
-2. 现在有一个披萨店了，可以接受订单：
+2.现在有一个披萨店了，可以接受订单：
 
 ```java
 Pizza pizza = nyStore.orderPizza("cheese");
 ```
 
-3. orderPizza()方法首先调用createPizza()方法
+3.orderPizza()方法首先调用createPizza()方法
 
 ```java
 Pizza pizza = createPizza("cheese");
 ```
 
-4. 当createPizza()方法被调用时，也就开始涉及原料工厂了：
+4.当createPizza()方法被调用时，也就开始涉及原料工厂了：
 
 ```java
 Pizza pizza = new CheesePizza(factory);
 ```
 
-5. 接下来需要准备披萨。一旦调用了prepare()方法，工厂将被要求准备原料：
+5.接下来需要准备披萨。一旦调用了prepare()方法，工厂将被要求准备原料：
 
 ```java
 public void prepare() {
@@ -670,7 +670,7 @@ public void prepare() {
 		cheese = factory.createCheese();
 	}
 ```
-6. 最后，我们得到了准备好的披萨，orderPizza()就会接着烘烤、切片、装盒。
+6.最后，我们得到了准备好的披萨，orderPizza()就会接着烘烤、切片、装盒。
 
 
 ## 定义抽象工厂模式
