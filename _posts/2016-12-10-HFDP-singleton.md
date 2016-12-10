@@ -129,12 +129,12 @@ instance.drain();
 在单线程环境中程序运行的很好，但是在多线程环境中问题就出现了。我们来模拟有两个线程同时调用getInstance()时可能会出现的情况。我们把每一个执行步骤都编上号，如下：
 
 ```java
-public static ChocolateBoiler getInstance() 		//①
+public static ChocolateBoiler getInstance() 		//1
 {
-	if (uniqueInstance == null) {			//②
-		uniqueInstance = new ChocolateBoiler();	//③
+	if (uniqueInstance == null) {			//2
+		uniqueInstance = new ChocolateBoiler();	//3
 	}
-	return uniqueInstance;				//④
+	return uniqueInstance;				//4
 }
 ```
 
@@ -164,11 +164,11 @@ public static synchronized ChocolateBoiler getInstance()
 
 我们有下面的选择可以改善多线程：
 
-### 1.如果getInstance()的性能对应用程序不是很关键，就什么都别做。
+#### 1.如果getInstance()的性能对应用程序不是很关键，就什么都别做。
 
 同步getInstance()方法既简单又有效，如果getInstance()方法在程序中调用的不是很频繁，我们可以继续使用同步的getInstance()方法。
 
-### 2.使用**急切**创建实例，而不用延迟实例化的做法。
+#### 2.使用**急切**创建实例，而不用延迟实例化的做法。
 
 如果应用程序总是创建并使用单例实例，或者**在创建和运行时方面的负担不太繁重**，你可能想要急切创建此单例，如下：
 
@@ -184,7 +184,7 @@ public class Singleton {
 }
 ```
 
-### 3.用**双重检查加锁**，在getInstance()中减少使用同步。
+#### 3.用**双重检查加锁**，在getInstance()中减少使用同步。
 
 ```java
 public class Singleton {
