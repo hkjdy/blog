@@ -116,7 +116,7 @@ public class ChocolateBoiler {
 
 ## 多线程带来的麻烦
 
-为了充分利用CPU资源，我们打算使用多线程对ChocolateBoiler进行优化。来看看们的测试代码：
+为了充分利用CPU资源，我们打算使用多线程对ChocolateBoiler进行优化。来看看我们的测试代码：
 
 ```java
 ChocolateBoiler instance = ChocolateBoiler.getInstance();
@@ -131,14 +131,14 @@ instance.drain();
 ```java
 public static ChocolateBoiler getInstance() 		//①
 {
-	if (uniqueInstance == null) {					//②
-		uniqueInstance = new ChocolateBoiler();		//③
+	if (uniqueInstance == null) {			//②
+		uniqueInstance = new ChocolateBoiler();	//③
 	}
-	return uniqueInstance;							//④
+	return uniqueInstance;				//④
 }
 ```
 
-程序可能会按照下列步骤执行：
+线程可能会按照下列顺序执行：
 
 ![singleton](/assets/singleton/singleton2.png)
 
@@ -164,11 +164,11 @@ public static synchronized ChocolateBoiler getInstance()
 
 我们有下面的选择可以改善多线程：
 
-1.如果getInstance()的性能对应用程序不是很关键，就什么都别做。
+### 1.如果getInstance()的性能对应用程序不是很关键，就什么都别做。
 
 同步getInstance()方法既简单又有效，如果getInstance()方法在程序中调用的不是很频繁，我们可以继续使用同步的getInstance()方法。
 
-2.使用**急切**创建实例，而不用延迟实例化的做法。
+### 2.使用**急切**创建实例，而不用延迟实例化的做法。
 
 如果应用程序总是创建并使用单例实例，或者**在创建和运行时方面的负担不太繁重**，你可能想要急切创建此单例，如下：
 
@@ -184,7 +184,7 @@ public class Singleton {
 }
 ```
 
-3.用**双重检查加锁**，在getInstance()中减少使用同步。
+### 3.用**双重检查加锁**，在getInstance()中减少使用同步。
 
 ```java
 public class Singleton {

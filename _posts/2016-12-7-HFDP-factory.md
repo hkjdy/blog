@@ -664,11 +664,11 @@ Pizza pizza = new CheesePizza(factory);
 
 ```java
 public void prepare() {
-		System.out.println("Preparing " + name);
-		dough = factory.createDough();
-		sauce = factory.createSauce();
-		cheese = factory.createCheese();
-	}
+	System.out.println("Preparing " + name);
+	dough = factory.createDough();
+	sauce = factory.createSauce();
+	cheese = factory.createCheese();
+}
 ```
 6.最后，我们得到了准备好的披萨，orderPizza()就会接着烘烤、切片、装盒。
 
