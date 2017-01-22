@@ -103,7 +103,7 @@ public static void main(String[] args) {
 
 #### LinkedHashMap
 
-- 按照插入顺序或基于由于访问的 **最近最少使用（LRU）**算法保存键
+- 按照插入顺序或基于访问的 **最近最少使用（LRU）**算法保存键
 - 只比HashMap慢一点
 - 迭代速度比HashMap快，因为它使用链表维护内部次序
 
@@ -111,9 +111,9 @@ public static void main(String[] args) {
 
 - 弱键映射，允许释放映射所指向的对象
 - 是为解决某类特殊问题而设计的
-- 如果映射这外没有引用指向某个**键**，则此**键**可以被垃圾收集器回收
+- 如果映射之外没有引用指向某个**键**，则此**键**可以被垃圾收集器回收
 
-#### CurrentHashMap
+#### ConcurrentHashMap
 
 - 线程安全的Map，它不涉及同步加锁
 
@@ -145,11 +145,11 @@ map.clear()
 - 为使用散列均匀，桶的数量通常使用质数。但是对现代处理器来说桶的数量使用2的整数次方速度更快。
 - 怎么写一份像样的hashCode()
 
-1. 给int变量赋予某个非零值常
+1. 给int变量赋予某个非零值常量
 2. 为对象内每个有意义的域f（即每个可做equals()操作的域）计算出一个int散列码c
 3. 合并计算得到的散列码
 4. 返回result
-5. 检查hashCode()最后生成的结果要，确保相同的对象有相同的散列码
+5. 检查hashCode()最后生成的结果，确保相同的对象有相同的散列码
 
 ### 类图
 
@@ -183,7 +183,7 @@ public static void main(String[] args) {
 
 #### HashSet
 
-- 如果没有其它的限制，应该是首选Map
+- 如果没有其它的限制，应该是首选Set
 - 提供最快的查询速度
 - 元素必须定义hashCode()
 - 使用散列函数
@@ -225,19 +225,19 @@ public static void main(String[] args) {
 		queue.offer(random.nextInt(20));
 	}
 	
-	System.out.println("queue: " + queue);
+	System.out.println("queue: " + queue);		//1
 	
-	System.out.println("queue.peek(): " + queue.peek());
+	System.out.println("queue.peek(): " + queue.peek());	//2
 
-	System.out.println("queue.element():" + queue.element());
+	System.out.println("queue.element():" + queue.element()); //3
 	
-	System.out.println("queue.poll(): " + queue.poll());
+	System.out.println("queue.poll(): " + queue.poll());	//4
 	
-	System.out.println("queue: " + queue);
+	System.out.println("queue: " + queue);	//5
 	
-	System.out.println("queue.remove(): " + queue.remove());
+	System.out.println("queue.remove(): " + queue.remove());	//6
 	
-	System.out.println("queue: " + queue);
+	System.out.println("queue: " + queue);	//7
 	
 	
 }
@@ -246,13 +246,13 @@ public static void main(String[] args) {
 输出
 
 ```
-queue: [18, 15, 13, 1, 1, 9, 8, 0, 2, 7]
-queue.peek(): 18
-queue.element():18
-queue.poll(): 18
-queue: [15, 13, 1, 1, 9, 8, 0, 2, 7]
-queue.remove(): 15
-queue: [13, 1, 1, 9, 8, 0, 2, 7]
+#1	queue: [18, 15, 13, 1, 1, 9, 8, 0, 2, 7]
+#2	queue.peek(): 18
+#3	queue.element():18
+#4	queue.poll(): 18
+#5	queue: [15, 13, 1, 1, 9, 8, 0, 2, 7]
+#6	queue.remove(): 15
+#7	queue: [13, 1, 1, 9, 8, 0, 2, 7]
 ```
 
 offer()方法是与Queue相关的方法之一，它在允许的情况下，将一个元素插入到队尾，或者返回false。
