@@ -60,13 +60,13 @@ public class ShowTime implements IStartup{
 
 ### 4) 运行插件
 
-在项目上右键 -> Run As -> Eclipse Application，会启动Eclipse，启动完成后会显示Eclipse启动消耗时间，如下：
+在项目上`右键 -> Run As -> Eclipse Application`，会启动Eclipse，启动完成后会显示Eclipse启动消耗时间，如下：
 
 ![JVM](/assets/eclipse-plug-in/03.png)
 
 ### 5) 导出插件
 
-在项目上右键 -> Export... 在弹出的窗口中选择 `Deployable plug-ins and fragments` 如下：
+在项目上`右键 -> Export...` 在弹出的窗口中选择 `Deployable plug-ins and fragments` 如下：
 
 ![JVM](/assets/eclipse-plug-in/04.png)
 
@@ -79,3 +79,5 @@ public class ShowTime implements IStartup{
 ## 二、Eclipse插件安装
 
 把刚才导出的插件复制到eclipse目录的plugin目录下，然后启动eclipse，就可以看到eclipse启动消耗的时间。
+
+![JVM](/assets/eclipse-plug-in/06.png)
